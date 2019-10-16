@@ -16,6 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+# importing the settings file we have in portfolio file
+from django.conf import settings
+# static allows us to serve image files and other files as well
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
+] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+# above code will refer to settings.py 
