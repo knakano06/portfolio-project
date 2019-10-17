@@ -21,7 +21,12 @@ from django.conf import settings
 # static allows us to serve image files and other files as well
 from django.conf.urls.static import static
 
+# import the views.py file in jobs app
+import jobs.views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # go to jobs apps, views.py, and go to the home function
+    path('', jobs.views.home, name = 'home'),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
-# above code will refer to settings.py 
+# above code will refer to settings.py
