@@ -4,6 +4,7 @@ Copy template from bootstrap! -->
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- make sure to load static files in order to access them! -->
     {% load staticfiles %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -39,7 +40,6 @@ Copy template from bootstrap! -->
       <header>
         <!-- template copied template from bootstrap! -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <!-- # tag will bring the user back to homepage by clicking this -->
         <a class="navbar-brand" href="{% url 'home' %}">Karin Nakano</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -58,14 +58,12 @@ Copy template from bootstrap! -->
 
 <main role="main">
   <div class="container">
-
     <!--pt-# will put some space on the top of the text-->
     <h1 class = "text-center pt-3">Welcome to Karin's Blog</h1>
     <br />
     <br />
     <h2>Latest Post</h2>
-    <!--Add a line!-->
-    <hr />
+    <hr /> <!--Add a line!-->
 
     <!--for loop that goes through all blogs-->
     {% for blog in blogs.all %}
@@ -75,6 +73,7 @@ Copy template from bootstrap! -->
       we can make it so that the title is a link to another page where the
       actual body text for the blog is located -->
       <a href="{% url 'detail' blog.id %}"><h3>{{ blog.title }}</h3></a>
+      <!-- display a less-detailed publishing date -->
       {{ blog.pub_date_neat }}
       <br />
       <div class="card mb-4 shadow-sm">
@@ -87,14 +86,15 @@ Copy template from bootstrap! -->
     {% endfor%}
 
   </div>
-
 </main>
 
 <footer class="text-muted">
   <div class="container text-center">
+    <!-- '% now "Y"' will display the current year -->
     <p>©Karin Nakano {% now "Y" %}</p>
   </div>
 </footer>
+
 <!--pasted from bootstrap-->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

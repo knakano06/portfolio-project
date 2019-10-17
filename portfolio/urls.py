@@ -26,10 +26,13 @@ import jobs.views
 import blog.views
 
 urlpatterns = [
+    # path to admin site
     path('admin/', admin.site.urls),
+
     # go to jobs apps, views.py, and go to the home function
     path('', jobs.views.home, name = 'home'),
-    # 'blod/' can be any name but 'blog.urls' has to refer to the name of the app
+
+    # 'blog/' can be any name but 'blog.urls' has to refer to the name of the app
     # this will forward you to url.py in the blogs app
     path('blogs/', include('blog.urls')),
 

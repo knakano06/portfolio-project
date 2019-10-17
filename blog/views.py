@@ -5,9 +5,8 @@ from django.shortcuts import render, get_object_or_404
 # access item in the Blog data base
 from .models import Blog
 
-# Create your views here.
 def allblogs(request):
-    # get the blog objects here and pass it back using this render
+    # get the blog objects here and pass it back to uls.py using this render
     blogs = Blog.objects # list of blogs
     return render(request, 'blog/allblogs.html', {'blogs': blogs})
 

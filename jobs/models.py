@@ -1,8 +1,8 @@
 from django.db import models
 
-class Job(models.Model):
-    # refer to documentation for model field
+# refer to documentation for model field
 
+class Job(models.Model):
     # image for each job description on my webpage
     # everytime someone uploads an image, save it to the images folder
     image = models.ImageField(upload_to = 'images/')
@@ -10,4 +10,3 @@ class Job(models.Model):
     # summary for each job
     # set a capacity for the size of the summary text box
     summary = models.CharField(max_length = 200)
-    
