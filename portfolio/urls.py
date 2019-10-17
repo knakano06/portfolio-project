@@ -14,19 +14,24 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 # importing the settings file we have in portfolio file
 from django.conf import settings
 # static allows us to serve image files and other files as well
 from django.conf.urls.static import static
 
-# import the views.py file in jobs app
+# import the views.py file in jobs and blog app
 import jobs.views
+import blog.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # go to jobs apps, views.py, and go to the home function
     path('', jobs.views.home, name = 'home'),
+    # 'blod/' can be any name but 'blog.urls' has to refer to the name of the app
+    # this will forward you to url.py in the blogs app
+    path('blogs/', include('blog.urls')),
+
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 # above code will refer to settings.py

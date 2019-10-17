@@ -4,14 +4,14 @@ Copy template from bootstrap! -->
 <!doctype html>
 <html lang="en">
   <head>
+    {% load staticfiles %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
-    <title>Album example · Bootstrap</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+    <title>Karin Nakano</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -39,7 +39,7 @@ Copy template from bootstrap! -->
       <!-- template copied template from bootstrap! -->
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <!-- # tag will bring the user back to homepage by clicking this -->
-      <a class="navbar-brand" href="#">Karin Nakano</a>
+      <a class="navbar-brand" href="{% url 'home' %}">Karin Nakano</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -47,9 +47,9 @@ Copy template from bootstrap! -->
         <!-- ml-auto will make the other links be displayed on the right side of the header bar -->
         <div class="navbar-nav ml-auto">
           <!--putting 'active' after 'nav-link' makes it be high-lighted-->
-          <a class="nav-item nav-link" href="#">Instagram</a>
-          <a class="nav-item nav-link" href="#">Resume</a>
-          <a class="nav-item nav-link" href="#">Blog</a>
+          <a class="nav-item nav-link" href="https://www.instagram.com/k.a.r.i.n.nn/">Instagram</a>
+          <a class="nav-item nav-link" href="{% static 'resume.pdf' %}">Resume</a>
+          <a class="nav-item nav-link" href="{% url 'allblogs' %}">Blog</a>
         </div>
       </div>
     </nav>
@@ -65,6 +65,7 @@ Copy template from bootstrap! -->
         <!--'mailto:' will automatically open up the clicker's default web browser -->
         <a href="mailto:knakano1@swarthmore.edu" class="btn btn-primary my-2">Contact</a>
       </p>
+      <img src = "{% static 'profilepic.jpg' %}" height = "300" width = "300"/>
     </div>
   </section>
 
